@@ -57,6 +57,7 @@ All source code in this repository is released under the [MIT License](LICENSE).
 - Gustavo García
 - Daniela Mejía
 - [Juliana Lalinde-Velásquez](https://github.com/julianalalindev)
+- Ana Sofia Herazo
 
 ## Contact
-Questions about the files can be directed to <jmunozm1@eafit.edu.co>.
+Questions about the files can be directed to <asherazoc@eafit.edu.co>.
