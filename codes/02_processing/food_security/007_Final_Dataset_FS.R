@@ -68,5 +68,5 @@ BARR <- data_final %>%
   dplyr::summarise(spl = dplyr::n(), .groups = "drop")
 table(data_final$BARRIO, data_final$Interv_n)
 
-write_rds(data_final,"/Users/anaherazo/Desktop/tesis/hogares-saludables/data/datasets/HS_FinalDS_Jun2024_FS.rds")
+write_rds(data_final, "data/datasets/HS_FinalDS_Jun2024_FS.rds")
 write.csv(data_final, file="data/survey/03_procesados/HS_FinalDS_Jun2024_FS.csv", na="")
