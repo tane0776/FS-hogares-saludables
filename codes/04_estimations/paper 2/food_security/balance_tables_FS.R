@@ -16,7 +16,7 @@ suppressPackageStartupMessages({
   library(fastDummies)
 })
 
-OUT_DIR  <- "/Users/anaherazo/Desktop/tesis/hogares-saludables/data/balances"
+OUT_DIR  <- "data/balances"
 AUX_PATH <- "codes/04_estimations/src_aux/010_Aux_Balance_Tables.R"
 
 if (!dir.exists(OUT_DIR)) dir.create(OUT_DIR, recursive = TRUE, showWarnings = FALSE)
