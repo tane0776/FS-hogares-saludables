@@ -1,0 +1,70 @@
+%%%%%%% document class %%%%%%%
+\documentclass[12pt, a4paper]{article}   	
+\linespread{1.3}
+\font\myfont=cmr12 at 20pt
+
+%%% Tables
+\usepackage{tabularx}
+
+%%%%%%% packages %%%%%%%
+\usepackage[tmargin=1in,bmargin=1in,lmargin=1.15in,rmargin=1.15in]{geometry}
+\usepackage[parfill]{parskip}
+\setlength{\parskip}{0.1cm}  
+\setlength{\parindent}{0.5cm} 
+\usepackage{appendix}
+\usepackage{soul}
+\usepackage{authblk}
+\usepackage{indentfirst}            		
+\usepackage[T1]{fontenc}
+\usepackage[table]{xcolor}
+\usepackage{blindtext}
+\usepackage{caption}
+\usepackage[debug,pdftex,citecolor=blue]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage{subcaption}			
+\usepackage{lipsum} 
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{apacite}
+\usepackage{mathtools}
+\usepackage{footnote}
+\usepackage{adjustbox}
+
+% example text
+\usepackage{multirow, bigdelim}
+\usepackage{geometry}  % drop `showframe` option in actual document
+\usepackage{threeparttable}
+\usepackage{color}	
+\usepackage{textcomp}
+\usepackage{verbatim}
+\usepackage{tikz}
+\usepackage{rotating}
+\usepackage{placeins}
+\usepackage{graphicx}	
+\usepackage{subcaption}
+\usepackage{pifont}
+\usepackage{float}
+\usepackage{pdflscape}
+\newcommand{\xmark}{\ding{55}}%
+\usepackage{pdfpages}
+\usepackage{pst-pdf}
+\graphicspath{ {/Figures/} }
+\usepackage{array} % redice space betewen lines in tables
+\usepackage[hang]{footmisc} % fancy simbols
+
+%%%%%%% abstract %%%%%%%
+\renewenvironment{abstract}
+{\small
+\begin{center}
+\bfseries \abstractname\vspace{-.4em}\vspace{0pt}
+\end{center}
+\list{}{
+        \setlength{\leftmargin}{2mm}% <---------- CHANGE HERE
+        \setlength{\rightmargin}{\leftmargin}%
+ }
+\item\relax}
+{\endlist}
+
+

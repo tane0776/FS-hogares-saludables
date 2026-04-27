@@ -1,0 +1,71 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Formalizar para sustituir Slides 
+%% Ultima modificacion: 12 agosto, 2022
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[10pt, aspectratio=169]{beamer}
+\usepackage{makecell}
+\usepackage{ragged2e}
+%\usepackage{authblk}
+
+%In the preamble
+\usepackage{array}
+\newcolumntype{H}{>{\setbox0=\hbox\bgroup}c<{\egroup}@{}}
+
+\input{head} % Include packages and set up
+\AtBeginSection{%
+    \begin{frame}{Contenido}
+        \tableofcontents[currentsection]
+    \end{frame}
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                     titulo y datos autores
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{Building Healthy Homes:}
+\subtitle{The Effect of Housing Improvement on different levels}
+
+
+ \author[1]{Camilo Acosta}
+    \author[1]{Michael Cardona}
+    \author[2]{Gustavo García}
+    \author[2]{Juan Carlos Muñoz-Mora}
+    \author[3]{Albert Saiz}
+    \affil[1]{BID}
+    \affil[2]{Universidad EAFIT}
+    \affil[3]{Department of Urban Studies and Planning, Massachusetts Institute of Technology}
+
+\date{Septiembre, 2023}
+
+%\institute[shortinst]{\inst{1} Universidad de los Andes \and 
+                      
+%\date[shortinst]{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
+%%%%%%%------------ Inicio de la presentación ------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+    %%%% -- Slide 0 - Title -----
+    \maketitle
+
+\begin{frame}[fragile]
+      \frametitle{Derechos de Propiedad sobre la Tierra y Cultivos Ilícitos} 
+      \begin{itemize}
+      \item Por qué es importante?
+      \begin{itemize}
+      \item 53\% de informalidad (UPRA, 2020).
+      \item 65\% en zonas de altos presencia de coca (Norte de Santander, Nariño, Putumayo). 
+       \end{itemize} 
+        \item Correlación negativa entre formalización de la tierra y presencia de cultivos de coca (Muñoz, Tobón \& Danju, 2018). 
+        \item Mecanismos: 
+        \begin{itemize}
+      \item Reducción en riesgos de expropiación $\rightarrow$ incentiva inversión en cultivos legales y una mayor productividad. 
+      \item Uso de colateral aumenta acceso a crédito $\rightarrow$ mayor inversión e ingresos.    
+     \end{itemize} 
+     \end{itemize} 
+\end{frame}
+
+\end{document}

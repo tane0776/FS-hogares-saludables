@@ -1,0 +1,71 @@
+\documentclass{article}
+\usepackage{tabularx}
+\usepackage{geometry}
+\usepackage{booktabs}
+\usepackage{pgf,tikz}
+\usepackage{float}
+\geometry{a4paper, margin=0.5in}
+\usetikzlibrary{calc}
+
+\newcolumntype{L}{>{\centering\tiny\arraybackslash}l}
+
+\title{Descriptive Statistics}
+\author{}
+\date{}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%% <----- Table 1 to 7 - Demographics ------>
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\maketitle
+
+%%%% -- Loop over cities --- %%%
+\foreach \c\x in {ALL/\textbf{All Sample}, 
+                    MED/\textbf{Medellin},
+                    CAL/\textbf{Cali},
+                    BAR/\textbf{Barranquilla}}{
+
+\section{\x}
+
+%%%% -- Loop over table --- %%%
+\foreach  \i\j in {
+    Intervention/\textbf{Housing Quality - (Treatment variables)},
+    Demographic/\textbf{Household Characteristics},
+    Labor/\textbf{Labor},
+    Income/\textbf{Income},
+    Family/\textbf{Family Relationship},
+    MentalHealth/\textbf{Mental Health},
+    PhysicalHealth/\textbf{Physical Health},
+    Perception/\textbf{Perception},
+    Household/\textbf{Housing Characteristics},
+    Geography/\textbf{Geography}}{
+
+%%%% -- Start --- %%%
+
+\begin{table}[H]
+\caption{Descriptive statistics - \j  (\x)}
+{\fontsize{5pt}{5pt}\selectfont % Cambia el tamaño de fuente a 6pt con un interlineado de 8pt
+\begin{tabularx}{0.9\textwidth}{|X|cccc|cc|cc|ccc|}
+\hline \\
+& \multicolumn{4}{c|}{\small \textbf{ALL}} & \multicolumn{2}{|c|}{\small\textbf{Treatment}} & \multicolumn{2}{|c|}{\small\textbf{Control}} &\multicolumn{3}{|c|}{\small\textbf{Difference}} \\
+\hline \\
+Variable & N & NA & Mean & Std. Desv & Mean & Std. Desv & Mean & Std. Desv & Diff & Interval & t-test\\
+\hline \\
+\input{results/tables/desc/Desc_\c_\i}
+\\ \hline
+% Tus datos aquí
+\end{tabularx}} % Fin del ajuste de tamaño de fuente
+\end{table}
+ \par
+%%% --- End Loop --- %%%
+}
+}
+
+
+
+
+
+
+
+\end{document}

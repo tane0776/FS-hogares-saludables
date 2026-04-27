@@ -1,0 +1,33 @@
+---
+title: "Dictionary"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(readxl)
+library(DT)
+library(formattable)
+dictionary_hs<- read_excel("Diccionario.xlsx", sheet = "HS")
+dictionary_choices<- read_excel("Diccionario.xlsx", sheet = "choices") 
+
+dictionary_hs<- dictionary_hs[,c('choice','data_type','question','Dimension','new_name')]
+
+
+dictionary_choices$selection<- paste(dictionary_choices$name, "=",dictionary_choices$label)
+
+dictionary_choices <- aggregate(selection ~ list_name, dictionary_choices, paste, collapse = " | ")
+
+dic<- merge(dictionary_hs,dictionary_choices, by.x = 'choice',by.y = 'list_name', all.x = TRUE)
+
+dic <- dic[, c("new_name", "Dimension", "question", "data_type","choice","selection")]
+
+dic <- dic[order(dic$Dimension, dic$new_name), ]
+
+
+```
+
+
+```{r echo=FALSE, warning=FALSE}
+DT::datatable(dic, filter = 'top', options = list(pageLength = 25, scrollX = TRUE), rownames = FALSE)
+```
+

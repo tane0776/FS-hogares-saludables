@@ -1,0 +1,107 @@
+    %%% Articule Set Up
+    \input{head}
+
+    \usepackage{booktabs}% http://ctan.org/pkg/booktabs
+    \newcommand{\tabitem}{~~\llap{\textbullet}~~}
+
+    %%%% Tiles 
+    \title{Interior Housing Quality, Amenities, and Wellbeing in Informal Settlements:  \\ 
+    Evidence from Colombia's Invasiones}
+    
+    \author[1]{Gustavo Garcia}
+    \author[1]{Juan Carlos Muñoz-Mora}
+    \author[2]{Albert Saiz}
+
+    \affil[1]{Universidad EAFIT}
+    \affil[2]{Massachusetts Institute of Technology (MIT)}
+
+    %% Journals
+    \date{Work in Progress. \\ This Version: \today}
+
+%\usepackage{natbib}
+\usepackage{graphicx}
+
+\begin{document}   
+
+
+    %%%% -- First Page
+    \maketitle
+        \begin{abstract}
+    What is the bearing of interior housing quality on the lives of informal-home dwellers? A large literature has devoted substantial efforts to study the impact of slum infrastructural improvements (street paving, sewage, and electricity provision) or of the the regularization of property titles. Scarcer work has been devoted to the interior quality of slum dwellings—which is widely heterogenous—using only subjective, self-reported measures. Here we introduce a battery of objective metrics for interior housing quality based on expert engineering assessments and AI classifications of building photos. We then explore their associations with self-reported perceived quality. We further identify the importance of specific qualitative versus quantitative measurements to explain household outcomes, thereby providing potential targets for future research and policy interventions.
+        \end{abstract}
+
+Outline
+
+\section{Introduction}
+
+Affordability (paper) - Quality interior
+
+\section{Previous work}
+
+*literature on quality of slums: 
+*infrastructure and interventions
+* environment (slopes) and 3d, 
+* exterior walls, 
+* interior space, square meters or rooms per person
+* interior finishings: lack of data
+* Improvement communal level --> structure
+* Exterior (information) --> Subjetive vs Objetive
+---> Framing: literature informal( communal), dentro de las paredes (ll), dentro objetivo y las subjetivos
+---> How are correlated with the standard outcomes in the literature (several outcomes)
+
+\section{Context, data, and methods}
+
+*in the context of Hogares Saludables. survey: methods; 
+*working with community leaders in a context of organized gangs; 
+*geographic coverage: our neighborhoods
+*basic treatment and control differences in quality and work assessment; 
+* questionnaire;
+* outcome measurements
+* subjective assessments of interior quality
+* interior size self-reported assessment
+* engineer's assessment of needs: treatment and control
+* environment: slopes and distances to services
+* classification of interior quality using Artificial Intelligence
+* wall materials: machine learning classification from facade
+* roofs: classifications from photos
+* cadastre data
+---> Section for type of data construction (each methods)
+
+\section{Regressions}
+
+4.1. What determines subjective perceptions about housing quality
+
+* regression1, column 1,2,3: left hand side is number of interventions that are subjectively needed
+* regression1, column 4,5,6: left hand side is likert satisfaction with quality of home (ordered logit??)
+* regression1, column 7,8,9: left hand side is expected rent from home
+* Columns/Controls are: 
+        - (A) (1,4,7) objective interior measurements + city fixed effects + treatment dummies ; 
+        - (B) (2,5,8) A + individual controls; 
+        - (C) (3,6,9) B + neighborhood/environmental controls
+* objective measurements: 
+        - number of rooms; persons per room;  engineer's deficiencies; exterior wall; roof, cadastre variables; AI assessment of interior quality with photos
+* personal measurements: age, income, education, number of people in home; gender composition; etc...
+* environment: slope; distance to services; security perceptions
+
+
+4.2. What predicts mental health, physical ailments, and labor outcomes
+
+* which one of subjective or objective measurements are more predictive of life outcomes? 
+* Does interior quality (both objective or subjective) matter for life satisfaction or, alternatively is there a hedonic treadmill?
+
+*Regressions. 
+    -> Depedent var: overall mental health index (table1) ; overall morbidity index; intra-family violence; labor outcomes; labor outcome specifically for women (we need to think about these last ones)
+    -> Controls
+        - C1 - Subjetive - extensive + Objetive - extensive (dummies) + CC
+        - C2 - Subjetive - intensive + Objetive - intensive  (n_int)  + CC
+        - C3 - Perception 
+        - C4 - Budget information
+        - C5 - number of rooms; persons per room
+        - C6? - cadastre variables; AI assessment of interior quality with photos
+        - C7 - Lasso selection
+        - CC : FE cities, households, personal measurements, environment
+ 
+
+\section{Conclusions}
+
+\end{document}

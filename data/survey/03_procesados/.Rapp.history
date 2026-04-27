@@ -1,0 +1,2 @@
+load("/Users/saiz/hogares-saludables/data/survey/03_procesados/hogares_encuesta_procesada.rds")
+load("/Users/anaherazo/Desktop/tesis/hogares-saludables/data/survey/03_procesados/hogares_encuesta_procesada_endline_names.rds")

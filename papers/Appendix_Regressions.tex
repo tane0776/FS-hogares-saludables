@@ -1,0 +1,47 @@
+\documentclass{article}
+\usepackage{tabularx}
+\usepackage{geometry}
+\usepackage{booktabs}
+\usepackage{pgf,tikz}
+\usepackage{float}
+\usepackage{xltabular}
+\geometry{a4paper, margin=0.5in}
+\usetikzlibrary{calc}
+
+\newcolumntype{L}{>{\centering\tiny\arraybackslash}l}
+
+\title{Regression Analysis}
+\author{}
+\date{}
+
+\begin{document}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%% <----- Table 1 to 7 - Demographics ------>
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\maketitle
+
+\section{Reg0 - outcomes = f(need to intervention)}
+
+%%%% -- Loop over cities --- %%%
+\foreach \c in {1,2, ...,16}{
+%\foreach \c in {1}{
+\input{results/tables/regs/reg0_\c}
+ \par
+%%% --- End Loop --- %%%
+}
+
+%\section{Reg2 - Regressions --> need to intervention = f()}
+
+%%%% -- Loop over cities --- %%%
+%\foreach \c in {1,2, ...,20}{
+
+%\input{results/tables/regs/reg1_\c}
+ %\par
+%%% --- End Loop --- %%%
+%}
+\end{document}

@@ -1,0 +1,2 @@
+load("/Users/saiz/hogares-saludables/data/survey/01_originales/raw_HOGARES.rda")
+load("/Users/saiz/hogares-saludables/data/survey/01_originales/raw_HOGARES_Endline.rda")

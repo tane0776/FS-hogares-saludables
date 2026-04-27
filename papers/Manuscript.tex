@@ -1,0 +1,313 @@
+    %%% Articule Set Up
+    \input{head}
+
+    \usepackage{booktabs}% http://ctan.org/pkg/booktabs
+    \newcommand{\tabitem}{~~\llap{\textbullet}~~}
+
+    %%%% Tiles 
+    \title{Interior Housing Quality, Amenities, and Wellbeing in Informal Settlements:  \\ 
+    Evidence from a Quasi-Randomized Sample}
+    
+    \author[1]{Gustavo Garcia}
+    \author[1]{Juan Carlos Muñoz-Mora}
+    \author[2]{Albert Saiz}
+
+    \affil[1]{Universidad EAFIT}
+    \affil[2]{Massachusetts Institute of Technology (MIT)}
+
+    %% Journals
+    \date{Work in Progress. \\ This Version: \today}
+
+%\usepackage{natbib}
+\usepackage{graphicx}
+
+\begin{document}   
+
+
+    %%%% -- First Page
+    \maketitle
+        \begin{abstract}
+What is the bearing of interior housing quality on the lives of informal-home dwellers? A large literature has devoted substantial efforts to study the impact of the improvement of slum infrastructures (street paving, sewage, and electricity provision) or the regularization of property titles. Scarcer work has been devoted to the interior quality of slum dwellings, which is actually quite heterogenous. Most previous work have used subjective measures of 
+        \end{abstract}
+
+Outline
+
+1. Intro
+
+90=-98 (paper) - Quality interior
+
+2. Previous work
+*literature on quality of slums: 
+*infrastructure and interventions
+* environment (slopes) and 3d, 
+* exterior walls, 
+* interior space, square meters or rooms per person
+* interior finishings: lack of data
+* Improvement communal level --> structure
+* Exterior (information) --> Subjetive vs Objetive
+---> Framing: literature informal( communal), dentro de las paredes (ll), dentro objetivo y las subjetivos
+---> How are correlated with the standard outcomes in the literature (several outcomes)
+
+3. Context, data, and methods
+*in the context of Hogares Saludables. survey: methods; 
+*working with community leaders in a context of organized gangs; 
+*geographic coverage: our neighborhoods
+*basic treatment and control differences in quality and work assessment; 
+* questionnaire;
+* outcome measurements
+* subjective assessments of interior quality
+* interior size self-reported assessment
+* engineer's assessment of needs: treatment and control
+* environment: slopes and distances to services
+* classification of interior quality using Artificial Intelligence
+* wall materials: machine learning classification from facade
+* roofs: classifications from photos
+* cadastre data
+---> Section for type of data construction (each methods)
+
+4. Regressions
+4.1. What determines subjective perceptions about housing quality
+
+* regression1, column 1,2,3: left hand side is number of interventions that are subjectively needed
+* regression1, column 4,5,6: left hand side is likert satisfaction with quality of home (ordered logit??)
+* regression1, column 7,8,9: left hand side is expected rent from home
+* Columns/Controls are: 
+        - (A) (1,4,7) objective interior measurements + city fixed effects + treatment dummies ; 
+        - (B) (2,5,8) A + individual controls; 
+        - (C) (3,6,9) B + neighborhood/environmental controls
+* objective measurements: 
+        - number of rooms; persons per room;  engineer's deficiencies; exterior wall; roof, cadastre variables; AI assessment of interior quality with photos
+* personal measurements: age, income, education, number of people in home; gender composition; etc...
+* environment: slope; distance to services; security perceptions
+
+4.2. What predicts mental health, physical ailments, and labor outcomes
+
+* which one of subjective or objective measurements are more predictive of life outcomes? 
+* Does interior quality (both objective or subjective) matter for life satisfaction or, alternatively is there a hedonic treadmill?
+
+*Regressions. 
+    -> Depedent var: overall mental health index (table1) ; overall morbidity index; intra-family violence; labor outcomes; labor outcome specifically for women (we need to think about these last ones)
+    -> Controls
+        - C1 - Subjetive - extensive + Objetive - extensive (dummies) + CC
+        - C2 - Subjetive - intensive + Objetive - intensive  (n_int)  + CC
+        - C3 - Perception 
+        - C4 - Budget information
+        - C5 - number of rooms; persons per room
+        - C6? - cadastre variables; AI assessment of interior quality with photos
+        - C7 - Lasso selection
+        - CC : FE cities, households, personal measurements, environment
+ 
+
+5. Conclusions
+
+%%% ---- SECTION I - Introduction
+\newpage
+\section{Introduction}
+
+        %% General Introduction 
+        Globally, an estimated 1.26 billion people reside in inadequate housing, lack proper protection from the elements, and face limited access to essential services such as water and sanitation. With ongoing population growth and the impact of climate change, the pace of urbanization is accelerating, leading to a projected increase in the number of people living in substandard housing. This highlights the growing severity of the problem, which requires greater attention and concerted efforts from policy makers in the future \cite{behr2021introducing}.  \\
+        
+        %% Context of Colombia -- Housing improvement
+        In Colombia, approximately a third of families live in houses not adequately equipped with inadequate floors or no access to water in the kitchen \cite{ECV_2021}, creating stress and tension within the home. Furthermore, there is a high prevalence of domestic violence, with many cases reported each year and approximately one in five children exposed to corporal punishment \cite{cuartas2019civil}. Although inadequate housing is not the only reason for domestic violence, home improvements have been shown to improve overall mental well-being of the family \cite{curl2015physical,devoto2012happiness} and reduce depression \cite{cattaneo2009housing}, potentially also decreasing overall stress and domestic violence. \\
+
+        %%% In this paper
+        In this paper, we study the causal effect of housing improvement practices on conflict reduction and prevention of domestic violence. We designed an experiment that combines physical improvement in housing and a pledge-based information intervention to strengthen family relationships. The primary objective of the intervention is to measure the impact of improving housing quality in general and, more specifically, on the prevalence and intensity of domestic violence. Furthermore, we will evaluate the marginal contribution of receiving a pledge to create a happy and healthy home in conflict resolution, stress levels, and the prevalence of domestic violence. Our intervention was built on an existing program called \emph{Hogares Saludables}. It is a private company initiative that seeks to dignify the lives of vulnerable households by offering better housing conditions on floors, bathrooms, and/or kitchens. Families are selected and prioritized to receive the improvement of their household based on an evaluation that combines an assessment of infrastructure feasibility and socioeconomic characteristics. Then, just before physical improvements are delivered, we invite households to discuss the importance of building a healthy home by addressing some family agreements (emotional activation). Then, families are invited to choose one of the six pre-selected strengths. Finally, along with the official delivery of the new home, families receive a diploma with the agreed family strengths (pledge). At this moment, we co-develop a plan to trigger adherence to the selected strength (modeling process). We deliver a pre-design practical toolkit that provides concrete actions to the household. To facilitate the feasibility of this plan, we offer practical \emph{toolkits} with simple and practical advice on how to stick to the family agreement. The pledge ceremony aims to (i) raise awareness of the importance of personal relationships for household welfare, (ii) define co-existence strengths to coordinate household behavior, and (iii) strengthen family bonds by creating spaces for discussion and reconciliation. 
+
+        %%% Hyphotesis and empirical strategy
+        Our main hypothesis is that improving the conditions of the households leads to better family relationships as new housing conditions are improved. However, the expected effect will increase when families have additional practical tools and strategies to understand and implement concrete action to improve family relationships. Inadequate housing conditions negatively affect household members, including higher infant mortality rates and communicable diseases such as diarrhea \cite{sclar200521st}. However, the negative impact of inadequate housing extends beyond health issues, as it can create stress and tension within households, potentially initiating or exacerbating domestic violence. This serious problem affects the people involved and the larger community \cite{devoto2012happiness}. On the contrary, improved housing quality has provided substantial benefits. It improves children's physical health and cognitive development, reduces depression and stress among mothers, and increases overall well-being and life satisfaction for all household members. These improvements are positive for the individuals directly involved and benefit society. Stress reduction is expected to also positively impact the prevalence of domestic violence \cite{cattaneo2009housing,devoto2012happiness,galiani2017shelter}.
+        
+        %%% Empirical design
+        We conducted a randomized controlled trial to investigate the effectiveness of home improvement agreements and family strengths (pledges) in reducing household violence in vulnerable households. The study randomly selected 1200 households divided into four experimental arms, with 300 households in each. The first arm of the study consisted of households that received a fully treated group intervention, which involved providing both a home improvement agreement and family strengths (pledge). The second arm of the study involved households that received only the home improvement intervention. This group received the same physical infrastructure improvements as the fully treated group, but did not receive any family strengths (pledge) intervention. The third arm of the study consisted of households that received only the family strengths (pledge) intervention, without any home improvement intervention. This group was provided with support and resources to strengthen the social and emotional bonds of the family without any changes in their physical environment. The final arm of the study served as the absolute control group, with no intervention provided to households. This group was used as a baseline for comparison with the other three experimental arms. Our primary outcomes for the study were related to the well-being of the households, including measures of life satisfaction, physical and mental health, and co-existence at home. By collecting data on these outcomes before and after the interventions, we could assess the effectiveness of the different interventions in improving the well-being of the households. Overall, our randomized controlled trial with an experimental design allowed us to rigorously test the effectiveness of home improvement agreements and family strengths (pledges) in improving the well-being of vulnerable households. By providing different interventions to different household groups, we identified the most effective interventions and provided information on how to best support vulnerable households in the future. 
+
+        %%% Paper content
+        This paper has four sections. The first section delves into the existing literature on improving housing quality and family relationships. In the second section, we detail the program we have developed to improve housing quality and family relationships. The third section of the paper introduces our experimental design. We provide an overview of the sample size, data collection methods, and statistical techniques that we will use to analyze the results. Finally, in the fourth section of the article, we present the preliminary findings of our study. 
+
+
+%%% ---- SECTION II - Literature Review
+\section{Housing quality and wellbeing: ¿What do we know?}
+        
+        %%% -----------------
+        In this section, we explore the various studies on improving housing quality and family relationships, highlighting the different approaches and strategies adopted by researchers and practitioners to improve the living conditions of families and strengthen their bonds.
+
+    %%%%%
+    \subsection{Housing Quality and health} \\
+
+
+    ---> Triada 
+
+    Regresiones 
+        -->
+    
+    %%% Housing Quality
+    \subsection{Housing Quality and family environment} \\
+
+        %%%% General Outcomes of Housing Quality
+        Accommodation has a powerful influence on well-being, with the quality of the home itself affecting both physical and mental health, personal development, and overall quality of life \cite{cattaneo2009housing, galiani2017shelter, jaitman_evaluation_2013}. Low-quality housing is characterized by limited access to safe drinking water, poor sanitation, insufficient protection against the elements, overcrowding, and uncertain tenure \cite{behr2021introducing, sclar200521st}. Promote the spread of communicable and non-communicable diseases, leading, among other things, to high morbidity rates, especially in infants \cite{behr2021introducing, sclar200521st, takeuchi_measuring_2008}. But poor housing quality also affects mental health by inducing individual stress and causing tension within households \cite{devoto2012happiness}.  \\
+
+        %%%% Housing improvement and family relations
+        However, housing improvements have been found to have significant benefits in terms of the health and well-being of the inhabitants \cite{cattaneo2009housing, jaitman_evaluation_2013}. In particular, for children, improvements in housing quality lead to better health outcomes and a large reduction in the spread of diseases \cite{cattaneo2009housing,galiani2017shelter, jaitman_evaluation_2013}. Additionally, the effects on mental well-being are substantial. Depression and stress in the mother decrease \cite{cattaneo2009housing}, and tensions within the household decrease \cite{devoto2012happiness}. Inhabitants of improved housing feel more content \cite{cattaneo2009housing}, have greater life satisfaction \cite{jaitman_evaluation_2013}, and the happiness of both individuals and the entire family increases \cite{devoto2012happiness, galiani2017shelter}. A better housing environment and the accompanying disease reduction will potentially decrease stress and tension within the household, reducing domestic violence.   \\
+        
+    \subsection{Family Relations} \\
+
+        %%% Family relations and wellbeing        
+        The strength of family connections strongly influences the well-being of an individual \cite{thomas_family_2017}. An unstable family negatively affects its members \cite{schoon_competence_2002}. The poor quality of family life creates stress and tension at home \cite{thomas_family_2017}, depression levels are higher \cite{jurinsky_ease_2022}, and people exhibit higher levels of frustration, sadness, and worry \cite{carr_marital_2016}. Furthermore, these problems are transferred from generation to generation \cite{defrain_strong_2007}. In contrast, a strong family provides support to its members \cite{defrain_strong_2007} and is the basis for managing difficult situations \cite{gopalakrishnan_longitudinal_2023}. It helps to deal with stress and defeat hardship and crisis \cite{clark_spirituality_2017}, as well as positively affecting the well-being and functioning of the entire family and its individual members \cite{dunst_meta-analytic_2021}. For children and adolescents, good quality relationships have a positive impact on educational outcomes \cite{stevens_developmental_2018} and lead to less risky behavior, such as premarital sex \cite{roche_enduring_2008} or excessive alcohol consumption \cite{goldberg-looney_adolescent_2015}. For couples, a high-quality relationship reduces frustration, sadness, and worry \cite{carr_marital_2016}, lowers depression levels \cite{gopalakrishnan_longitudinal_2023}, and overall improves subjective well-being \cite{dush_consequences_2005}.  \\
+        
+        %%% -- Family RElations
+        Although the definitions and structures of families vary worldwide, people still gravitate toward family-style concepts \cite{defrain_strong_2007}. Despite these differences, researchers have found profound similarities in the characteristics of strong families \cite{krysan_identifying_1990}. According to DeFrain and Asay \citeyear{defrain_strong_2007}, these can be summarized into six categories: (i) Showing appreciation and respect, (ii) commitment, (iii) positive communication, (iv) enjoying time together, (v) spiritual well-being, and (vi) the ability to manage stress and crisis effectively. \\
+        \\
+
+
+%%% ---- SECTION III - Hogares Saludables
+\section{Hogares Saludables}
+
+        %%% The prorae progam
+       Cementos Argos, a well-known Colombian company, has always been committed to positively impacting society. One of their most successful social programs is Hogares Saludables (HS), which aims to promote an inclusive society by addressing two critical components: reducing the qualitative housing deficit and developing work and life skills. The first component of the program focuses on improving the living conditions of families struggling with inadequate housing. Lack of proper flooring, kitchens, and bathrooms can pose significant health risks and negatively impact the quality of life of those who live in these homes. Cementos Argos recognizes this and provides the materials and workers necessary to improve and renovate these areas, ensuring families have a safer and healthier environment. The second component of the program focuses on promoting the acquisition of work and life skills among beneficiaries. The company understands that providing families with a stable and safe home is the beginning of creating a better life for them. Cementos Argos recognizes that providing families with the necessary tools to improve their standard of living, in the long run, is essential. Therefore, they offer training and workshops that teach valuable skills in construction. 
+
+        HS adopts a holistic and participatory approach with the community and the social actors of the territory, who are involved from the beginning to the end of the intervention. The activities of the HS model are carried out in four stages: (i) The first has to do with identifying the territory and the beneficiaries. Once the territory is identified, the social and technical operators characterize and select the program's beneficiaries. (ii) The second stage of the intervention is in charge of the technical operator, who prepares a detailed diagnosis and budget for each home based on the materials required (according to the number and type of adaptations), in addition to agreeing on a schedule and a work plan with the beneficiaries of the program; (iii) In the third stage, a training partner provides basic training in construction skills, combining a teaching stage with a practical stage in which the beneficiaries apply the theoretical knowledge; (iv) Finally, in the fourth stage, the technical operator delivers the construction materials to each crew and performs the necessary follow-up to ensure compliance with the schedule and work plan defined in stage two. 
+
+
+        \begin{figure}[H]
+        \caption{Example of physical intervention taken place under Hogares Saludables}
+        \begin{tabular}{cc}
+            before & after \\
+            \includegraphics[width=0.5\textwidth,height=4cm]{figures/picture_house_floor_before.jpg} &
+            \includegraphics[width=0.5\textwidth,height=4cm]{figures/picture_house_floor_after.jpg} \\
+            \includegraphics[width=0.5\textwidth,height=4cm]{figures/picture_house_bathroom_before.png} &
+            \includegraphics[width=0.5\textwidth,height=4cm]{figures/picture_house_bathroom_after.jpg} \\
+            \includegraphics[width=0.5\textwidth,height=4cm]{figures/picture_house_kitchen_before.png} &
+            \includegraphics[width=0.5\textwidth,height=4cm]{figures/picture_house_kitchen_after.jpg} \\
+        \end{tabular}
+        \footnotesize \emph{Note—These pictures were collected with informed consent. Sept 2023}
+        \end{figure}
+
+        These activities are followed by a fifth stage consisting of a pledge ceremony where households are made aware of the rules of co-existence and division of tasks within the household to establish the causal relationship between the HS program with a pledge ceremony and the change in the family environment in terms of domestic violence of its beneficiaries. A team, including a psychologist, will meet the head of the household to explain the intervention steps. At first, all household members will then jointly discuss and choose one of the six family strengths (behaviors) presented and devise tangible actions to implement it. They will fill in and all sign a certificate pledging to stick to the decision. In a second moment, the head of the household will show the signed certificate to the psychologist and his team and receive further information and suggestions on how to implement the chosen behavior. \\
+        \\
+
+        \begin{figure}[H]
+        \caption{Example of the diploma delivered during the pledge ceremony}
+        \begin{tabular}{cc}
+            \includegraphics[width=0.5\textwidth]{figures/picture_diploma0.jpeg} &
+            \includegraphics[width=0.5\textwidth]{figures/picture_diploma1.jpeg} \\
+        \end{tabular}
+        \footnotesize \emph{Note—This picture was collected with informed consent. Sept 2023}
+        \end{figure}
+       
+    
+
+%%% ---- SECTION III - Experimental Design
+\section{Experimental Design}
+
+        %%% Empirical design overview
+        We conducted a randomized controlled trial to investigate the effectiveness of home improvement agreements and family strengths (pledges) in reducing household violence in vulnerable households. The trial included 1200 households divided into four experimental groups, each of 300 households. The first group received a complete physical home improvement intervention and a family strength intervention (pledge). The second group received only the home improvement intervention, which included improvements in physical infrastructure, but no family strength (pledge) intervention. The third group received only the family strengths (pledge) intervention, which focused on providing support and resources to enhance social and emotional bonds within the family without any changes in their physical environment. The fourth group served as the control group, with no intervention provided. This group was used as a baseline for comparison with the other three experimental groups. To evaluate the impact of various interventions on the well-being of households, we measured factors such as life satisfaction, physical and mental health, and harmonious coexistence within the home. By comparing data before and after the interventions, we were able to determine the effectiveness of each intervention in improving the well-being of these households. 
+
+        %% Data collection
+        We gather baseline and end-line information. The survey part of the study includes questions on how household members interact and respect each other, how often and how they argue, and if open communication is possible. Additionally, participants will be asked about the existence of family rules. To measure (female) empowerment, questions about the possibility of making one's own decisions are added.  Eight months after the house improvements have been completed and the pledge ceremony took place, all participants will complete the end-line survey.  \\
+
+        
+    \subsection{Sample selection}
+
+        The intervention will take place in Medellín, Cali, and Barranquilla. We identify the homes in the treatment and control groups as comparable as possible for demographic and housing characteristics. Given that Hogares Saludables seeks to impact low-income individuals with a high qualitative housing deficit, the evaluation of the program follows a partial randomization strategy. The strategy randomly selects territories with a higher degree of qualitative housing deficit. The delimitation of areas with the highest degree of qualitative deficit can be determined using the 2018 National Census, together with field visits, defining the blocks where the dwellings are to be treated, and those that would serve as controls will be randomly selected.
+
+        To ensure similarity in the observable characteristics of the house of the treatment and control groups, we construct four based on information from the 2018 CNPV. Indicators allow characterizing (1) Housing, (2) Demographic, (3) Educational, and (4) labor dimensions. Then, we create a cluster analysis based on these four indicators to identify the neighborhoods and/or districts in each of the three cities that have the greatest qualitative housing deficit, according to the CNPV. Table 5 shows the deviations from the mean for each of the indicators. A deviation from the mean greater than zero indicates a greater vulnerability. Houses belonging to the treatment and control groups are selected from the territories. The following figures show the neighborhoods of Medellín, Cali, and Barranquilla, respectively, colored by cluster. In particular, the light purple neighborhoods are those a potential region for our intervention.
+
+        \begin{figure}[H]
+            \caption{Selected blocks eligible for the intervention}
+                \begin{tabular}{cc}
+                    \includegraphics[width=0.5\textwidth]{figures/figure_sample_selection_medellin.png} &
+                    \includegraphics[width=0.5\textwidth]{figures/figure_sample_selection_barranquilla.png} \\
+                    \multicolumn{2}{c}{Cali} \\
+                    \multicolumn{2}{c}{\includegraphics[width=0.5\textwidth]{figures/figure_sample_selection_cali.png}}
+                \end{tabular}
+            \footnotesize \emph{Note—This picture was collected with informed consent. Sept 2023}
+        \end{figure}
+
+        Based on this classification, blocks were randomly assigned to control or treatment. Based on the literature review, we estimate a sample size that allows for the detection of small changes (< 0.1 standard deviation), given 78 clusters (blocks) with 15 observations each and assuming a very low Inter-class Correlation Cluster (ICC) between the different clusters due to geological separation, the study produces a power of 80\% at the section level.
+    
+    \subsection{Econometric Specification}
+    
+        As mentioned, to evaluate the effects of the pledge intervention, households in the treatment and control groups will be randomly assigned to one of the following groups: (i) pure control group, that is, households without home improvements or pledge; (ii) households with pledge; (iii) homes with home improvements and pledge. The econometric specification is as follows:
+    
+        \begin{equation*}
+            Y_i = \beta_0 + \beta_1 \cdot T_ij} + \delta_i + \epsilon_i
+        \end{equation*}
+    
+        Where $Y_i$ is Domestic Violence index at home $i$; $T_i^j$ represents the intervention ($j$) that each household ($i$) receives. $\beta_1$ captures the difference in Domestic Violence between households in the treatment and control group. $\delta_i$ are household fixed effects. \\
+        \\
+    
+%%% ---- SECTION III - Results
+\section{Preliminary Results}
+
+%    Tables 
+ %       --> Sobre las tablas 
+
+%        mts --> treatment --> perceived housing
+        
+ %       --> Pictures vs Information
+  %       --> Perceived vs Information
+   %         --> Visit to informal markets
+    %        --> 
+
+        %** Hacinamiento (mts2 de los cuatro)
+\subsection{Descriptive statistics}
+\input{tables/descriptives}
+        %Table 1: Descriptive
+
+\subsection{Determinants}
+\input{tables/table2}
+     %   Table 2: Determinants of perceived and measure quality
+      %      - Perceived = f(medidas de caldiad en el levantamiento técnico)
+       %     - Calidad = HS evaluación + Variables individuals
+        %    - Identify the main in wall --> Objetive
+\subsection{Mental health}
+\subsubsection{Index 1}
+Emotional state (the higher the worst), adding how often they felt stressed and nervous during the past 4 weeks, reducing how often they felt calm and happy during the past 4 weeks
+
+\textit{Households}
+\input{tables/table_3_animo_estres_calma}
+
+\subsubsection{Index 2}
+How satisfied with life is the person, the higher the number the less satisfied
+\input{tables/table_3_satisfaccion_vida}
+
+\subsubsection{Index 3}
+How often they've felt at ease and happy in the last month (the higher the number the more), reducing how often they've felt bad
+\input{tables/table_3_momentos_manejables_no}
+
+\subsubsection{Index 4}
+How often they've felt energyzed (the higher the number the less frequent), reducing how often they've felt tired 
+\input{tables/table_3_energia_cansancio}
+
+\subsubsection{Index 5}
+Whether work and activity has been reduced in the past month
+\input{tables/table_3_reducir_trabajo}
+
+\subsubsection{Index 6}
+Whether activities have been missed in the past month
+\input{tables/table_3_faltar_trabajo}
+ %       Table 3: Housing conditions - Mental
+  %          - Select 1 --> alternative measures of mental --> Appendix
+   %             - Column I: Naive (mental=f(housing))
+    %            - Column II: Naive + FE (Environmental effects)
+     %           - Column III: Column II + Individual + HH
+      %          - Column III: Column II + Individual + Income
+\subsection{Physicial health} 
+\input{tables/table_4_visita_medico}
+
+
+
+         Table 5: Housing conditions - Family environment
+
+        %% Actualizar el registro con el propensity score
+
+%%% ---- References
+\bibliographystyle{apacite}
+\bibliography{references_zotero}
+
+%%% ---- Appendix
+%\appendix
+    %% A= - Indirectores 
+    %\section{Sample selection}
+    %\input{tables/appendix_SampleSelection_Indicators}
+
+
+\end{document}

@@ -1,0 +1,134 @@
+---
+title: "NA Analysis HOGARES"
+author: "Santiago Navas"
+date: "2023-11-14"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(DT)
+library(formattable)
+library(readxl)
+library(here)
+
+load('HOGARES.rda')
+dictionary_hs_carac<- read_excel(paste0(here(),"/project_documents/Diccionario.xlsx"),sheet = "HS") 
+
+
+HOGARES$moda_cmh_p62 <- ifelse(nchar(HOGARES$moda_cmh_p62) != 10 & nchar(HOGARES$moda_cmh_p62) != 7, NA, HOGARES$moda_cmh_p62)
+
+HOGARES$moda_cmh_p63 <- ifelse(nchar(HOGARES$moda_cmh_p63) != 10 & nchar(HOGARES$moda_cmh_p63) != 7, NA, HOGARES$moda_cmh_p63)
+
+HOGARES$telefono<- ifelse(is.na(HOGARES$moda_cmh_p62), HOGARES$moda_cmh_p63, HOGARES$moda_cmh_p62 )
+
+
+# Función para calcular el porcentaje de NA por columna
+porcentaje_na <- function(df) {
+  porcentaje <- sapply(df, function(x) mean(is.na(x))) * 100
+}
+
+# Función para crear una tabla dinámica con barras dentro de cada valor
+tabla_dinamica <- function(df) {
+  porcentaje <- porcentaje_na(df)
+  real <-sapply(df, function(x) sum(is.na(x)))
+  
+  df_tabla <- data.frame(Variable = names(porcentaje), porcentaje = porcentaje, Real = real)
+  
+  
+  df_tabla$porcentaje <- percent(df_tabla$porcentaje / 100)
+  df_tabla$Missing <- color_bar("lightblue")(df_tabla$porcentaje)
+  
+
+  df_tabla<- df_tabla[df_tabla$porcentaje >= 0.3 & df_tabla$porcentaje <= 1,]
+
+  df_tabla<- df_tabla[,c("Variable","Missing")]
+  
+  df_tabla<- merge(df_tabla, dictionary_hs_carac, by.x = "Variable", by.y = "new_name", all.x = TRUE)
+  
+  df_tabla<- df_tabla[,c("Variable", "question","Missing")]
+  df_tabla <- df_tabla[order(df_tabla$Missing, decreasing = TRUE), ]
+
+  datatable(df_tabla, escape = FALSE, options = list(pageLength = 100, scrollX = TRUE), rownames = FALSE)
+}
+
+
+```
+
+# Todas las Variables
+```{r echo=FALSE, warning=FALSE}
+tabla_dinamica(HOGARES)
+```
+
+
+<!-- # Relevantes Nivel nacional -->
+<!-- ```{r echo=FALSE, warning=FALSE} -->
+<!-- tabla_dinamica(HOGARES[,c('start_p15','start_p16','start_p17','start_p18','start_p19',                                  'moda_cmh_p9','moda_cmh_p7','telefono','moda_cmh_p5','moda_cmh_p6')]) -->
+<!-- ``` -->
+
+<!-- # Relevantes Control -->
+<!-- ```{r echo=FALSE, warning=FALSE} -->
+<!-- tabla_dinamica(HOGARES[HOGARES$tratamiento_control=='0', -->
+<!--                                c('start_p15','start_p16','start_p17','start_p18','start_p19',                                  'moda_cmh_p9','moda_cmh_p7','telefono','moda_cmh_p5','moda_cmh_p6')]) -->
+
+<!-- ``` -->
+<!-- ## Medellin -->
+
+<!-- ```{r echo=FALSE, warning=FALSE} -->
+
+<!-- tabla_dinamica(HOGARES[HOGARES$tratamiento_control=='0' & HOGARES$start_p13=='1', -->
+<!--                                c('start_p15','start_p16','start_p17','start_p18','start_p19',                               'moda_cmh_p9','moda_cmh_p7','telefono','moda_cmh_p5','moda_cmh_p6')]) -->
+
+<!-- ``` -->
+
+<!-- ## Cali -->
+
+<!-- ```{r echo=FALSE, warning=FALSE} -->
+
+<!-- tabla_dinamica(HOGARES[HOGARES$tratamiento_control=='0' & HOGARES$start_p13=='2', -->
+<!--                                c('start_p15','start_p16','start_p17','start_p18','start_p19',                                'moda_cmh_p9','moda_cmh_p7','telefono','moda_cmh_p5','moda_cmh_p6')]) -->
+
+
+<!-- ``` -->
+
+<!-- ## Barranquilla -->
+
+<!-- ```{r echo=FALSE, warning=FALSE} -->
+<!-- tabla_dinamica(HOGARES[HOGARES$tratamiento_control=='0' & HOGARES$start_p13=='3', -->
+<!--                                c('start_p15','start_p16','start_p17','start_p18','start_p19',                                'moda_cmh_p9','moda_cmh_p7','telefono','moda_cmh_p5','moda_cmh_p6')]) -->
+<!-- ``` -->
+
+<!-- # Relevantes Tratamiento -->
+<!-- ```{r echo=FALSE, warning=FALSE} -->
+
+<!-- tabla_dinamica(HOGARES[HOGARES$tratamiento_control=='1', -->
+<!--                                c('start_p15','start_p16','start_p17','start_p18','start_p19', -->
+<!--                             'moda_cmh_p9','moda_cmh_p7','telefono','moda_cmh_p5','moda_cmh_p6')]) -->
+
+
+
+
+<!-- ``` -->
+<!-- ## Medellin -->
+
+<!-- ```{r echo=FALSE, warning=FALSE} -->
+<!-- tabla_dinamica(HOGARES[HOGARES$tratamiento_control=='1' & HOGARES$start_p13=='1', -->
+<!--                                c('start_p15','start_p16','start_p17','start_p18','start_p19',                             'moda_cmh_p9','moda_cmh_p7','telefono','moda_cmh_p5','moda_cmh_p6')]) -->
+
+<!-- ``` -->
+
+<!-- ## Cali -->
+
+<!-- ```{r echo=FALSE, warning=FALSE} -->
+<!-- tabla_dinamica(HOGARES[HOGARES$tratamiento_control=='1' & HOGARES$start_p13=='2', -->
+<!--                                c('start_p15','start_p16','start_p17','start_p18','start_p19',                               'moda_cmh_p9','moda_cmh_p7','telefono','moda_cmh_p5','moda_cmh_p6')]) -->
+
+
+<!-- ``` -->
+
+<!-- ## Barranquilla -->
+
+<!-- ```{r echo=FALSE, warning=FALSE} -->
+<!-- tabla_dinamica(HOGARES[HOGARES$tratamiento_control=='1' & HOGARES$start_p13=='3', -->
+<!--                                c('start_p15','start_p16','start_p17','start_p18','start_p19',                               'moda_cmh_p9','moda_cmh_p7','telefono','moda_cmh_p5','moda_cmh_p6')]) -->
+<!-- ``` -->
+
